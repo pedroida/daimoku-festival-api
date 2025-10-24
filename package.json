@@ -24,7 +24,8 @@
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "build": "prisma generate && tsc",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "vercel-build": "echo 'No build step required'"
   },
   "prisma": {
     "schema": "prisma/schema.prisma"
