@@ -20,6 +20,10 @@ app.use(cors())
 
 app.use(express.urlencoded({ extended: true }))
 
+app.get('/healthz', (req, res) => {
+  res.status(200).json({ status: 'ok' })
+})
+
 app.use((req, res, next) => {
   const apiKey = req.headers['api-key']
   if (apiKey !== process.env.API_KEY) {
