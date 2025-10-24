@@ -104,7 +104,7 @@ app.get('/api/daimokus/total-minutes', async (req, res) => {
     const totalHours = await prisma.daimoku.aggregate({
       _sum: { minutes: true }
     })
-    res.json(totalHours._sum.minutes)
+    res.json(totalHours._sum.minutes || 0)
   } catch (error) {
     console.log(error)
     res.status(500).json({ error: 'Failed to fetch total minutes' })
